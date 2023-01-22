@@ -41,6 +41,21 @@ mixin _$HomeState on HomeStateBase, Store {
     });
   }
 
+  late final _$pageAtom = Atom(name: 'HomeStateBase.page', context: context);
+
+  @override
+  int get page {
+    _$pageAtom.reportRead();
+    return super.page;
+  }
+
+  @override
+  set page(int value) {
+    _$pageAtom.reportWrite(value, super.page, () {
+      super.page = value;
+    });
+  }
+
   late final _$getSolarActivitiesAsyncAction =
       AsyncAction('HomeStateBase.getSolarActivities', context: context);
 
@@ -50,11 +65,26 @@ mixin _$HomeState on HomeStateBase, Store {
         .run(() => super.getSolarActivities());
   }
 
+  late final _$HomeStateBaseActionController =
+      ActionController(name: 'HomeStateBase', context: context);
+
+  @override
+  void setPage(int page) {
+    final _$actionInfo = _$HomeStateBaseActionController.startAction(
+        name: 'HomeStateBase.setPage');
+    try {
+      return super.setPage(page);
+    } finally {
+      _$HomeStateBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''
 solarActivities: ${solarActivities},
-isLoading: ${isLoading}
+isLoading: ${isLoading},
+page: ${page}
     ''';
   }
 }

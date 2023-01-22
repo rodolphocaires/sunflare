@@ -19,10 +19,18 @@ abstract class HomeStateBase with Store {
   @observable
   bool isLoading = false;
 
+  @observable
+  int page = 0;
+
   @action
   Future<void> getSolarActivities() async {
     isLoading = true;
     solarActivities = await _useCase.getLastSolarActivities();
     isLoading = false;
+  }
+
+  @action
+  void setPage(int nextPage) {
+    page = nextPage;
   }
 }
