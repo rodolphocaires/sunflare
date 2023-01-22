@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.sunflare">
+    package="dev.rodsandbox.sunflare">
    <application
         android:label="sunflare"
         android:name="${applicationName}"
