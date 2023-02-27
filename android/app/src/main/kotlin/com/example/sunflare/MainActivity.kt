@@ -1,4 +1,4 @@
-package com.example.sunflare
+package dev.rodsandbox.sunflare
 
 import io.flutter.embedding.android.FlutterActivity
 

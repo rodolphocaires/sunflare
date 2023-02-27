@@ -37,10 +37,16 @@ class _HomeState extends State<Home> {
                 ),
                 child: Center(
                   child: widget.homeState.isLoading
-                      ? const CircularProgressIndicator(color: Colors.black54)
-                      : Text(
-                          lastSolarFlare,
-                          style: const TextStyle(color: Colors.black54, fontSize: 36),
+                      ? const CircularProgressIndicator(color: Colors.black)
+                      : Container(
+                          width: double.maxFinite,
+                          color: Colors.black.withOpacity(0.5),
+                          padding: const EdgeInsets.all(8),
+                          child: Text(
+                            lastSolarFlare,
+                            style: const TextStyle(color: Colors.white, fontSize: 36),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                 ),
               ),
@@ -50,10 +56,16 @@ class _HomeState extends State<Home> {
                 ),
                 child: Center(
                   child: widget.homeState.isLoading
-                      ? const CircularProgressIndicator(color: Colors.white)
-                      : Text(
-                          lastSolarStorm,
-                          style: const TextStyle(color: Colors.white, fontSize: 36),
+                      ? const CircularProgressIndicator(color: Colors.black)
+                      : Container(
+                          width: double.maxFinite,
+                          color: Colors.black.withOpacity(0.5),
+                          padding: const EdgeInsets.all(8),
+                          child: Text(
+                            lastSolarStorm,
+                            style: const TextStyle(color: Colors.white, fontSize: 36),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                 ),
               ),
