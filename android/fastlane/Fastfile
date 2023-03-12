@@ -16,18 +16,16 @@
 default_platform(:android)
 
 platform :android do
-  desc "Runs all the tests"
-  lane :test do
-    gradle(task: "test")
-  end
-
-  desc "Submit a new Beta Build to Crashlytics Beta"
+  desc "Submit a new Beta Build to Firebase"
   lane :beta do
-    gradle(task: "clean assembleRelease")
-    crashlytics
-  
-    # sh "your_script.sh"
-    # You can also use other beta testing services here
+    firebase_app_distribution(
+        app: '1:906514472824:android:2176d2736e903c0710f28d',
+        firebase_cli_token: '1//0hvqLTrsinrCECgYIARAAGBESNwF-L9Ir-v3nzqs3pJiDnMSewRoh2VaWErpA4xp_p0VACtraWw0Wz1LPb8ALt7ni1zXDguqy8OQ',
+        apk_path: '../build/app/outputs/flutter-apk/app-release.apk',
+        release_notes: 'Meu release notes',
+        testers: 'rodolpho@live.de',
+        debug: true
+    )
   end
 
   desc "Deploy a new version to the Google Play"
